@@ -648,14 +648,9 @@ main:focus { outline: none; }
 }
 
 /* ---------- 6. Seções ---------- */
-/* clip: elementos que entram pela lateral nunca criam rolagem horizontal */
+/* clip: elementos que entram pela lateral nunca criam rolagem horizontal.
+   (Não usar content-visibility nas seções: o Safari do iPhone cortava os cards.) */
 .section { padding: 80px 0; overflow-x: clip; }
-
-/* Seções fora da tela só são desenhadas quando chegam perto (melhora o carregamento). */
-#projetos, #servicos, #tecnologias, #experiencia {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 1200px;
-}
 .section--tight { padding-block: 64px; }
 
 .section-head { margin-bottom: 40px; }
@@ -778,14 +773,18 @@ main:focus { outline: none; }
   box-shadow: 6px 6px 0 var(--hard);
   transition: transform .5s var(--ease-bounce), box-shadow .5s var(--ease-bounce);
 }
-.project-card:hover,
-.project-card:focus-within {
-  transform: translate(-3px, -4px) rotate(-.6deg);
-  box-shadow: 10px 10px 0 var(--hard);
+/* Efeitos de hover só em aparelhos com mouse: no celular o toque deixava o card torto */
+@media (hover: hover) {
+  .project-card:hover {
+    transform: translate(-3px, -4px) rotate(-.6deg);
+    box-shadow: 10px 10px 0 var(--hard);
+  }
+  .projects-grid > li:nth-child(even) .project-card:hover { transform: translate(-3px, -4px) rotate(.6deg); }
+  .project-card:hover .project-cover img { transform: scale(1.05); }
 }
-.projects-grid > li:nth-child(even) .project-card:hover,
-.projects-grid > li:nth-child(even) .project-card:focus-within { transform: translate(-3px, -4px) rotate(.6deg); }
 
+/* Imagem posicionada por cima e isolamento próprio, para o recorte com
+   cantos arredondados funcionar também no Safari. */
 .project-cover {
   position: relative;
   aspect-ratio: 16 / 10;
@@ -794,6 +793,13 @@ main:focus { outline: none; }
   border-radius: 12px 14px 11px 13px;
   overflow: hidden;
   background: var(--surface-2);
+  isolation: isolate;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+.project-cover img,
+.project-cover .cover-placeholder {
+  position: absolute;
+  inset: 0;
 }
 .project-cover img {
   width: 100%;
@@ -802,7 +808,6 @@ main:focus { outline: none; }
   object-position: top center;
   transition: transform 1.2s var(--ease-out);
 }
-.project-card:hover .project-cover img { transform: scale(1.05); }
 
 /* Capa provisória (quando o projeto não tem imagem) */
 .cover-placeholder {
@@ -925,7 +930,9 @@ main:focus { outline: none; }
   box-shadow: 6px 6px 0 var(--hard);
   transition: transform .5s var(--ease-bounce), box-shadow .5s var(--ease-bounce);
 }
-.service-card:hover { transform: translate(-3px, -4px); box-shadow: 10px 10px 0 var(--hard); }
+@media (hover: hover) {
+  .service-card:hover { transform: translate(-3px, -4px); box-shadow: 10px 10px 0 var(--hard); }
+}
 
 .service-icon {
   display: grid;
@@ -964,7 +971,9 @@ main:focus { outline: none; }
   border-right: 2px dashed rgba(0, 0, 0, .12);
   transform: translateX(-50%) rotate(-3deg);
 }
-.service-card--cta:hover { transform: rotate(-1deg) translateY(-4px); }
+@media (hover: hover) {
+  .service-card--cta:hover { transform: rotate(-1deg) translateY(-4px); }
+}
 .service-card--cta h3 { font-size: 1.6rem; }
 .service-card--cta p { color: var(--accent-contrast); }
 .service-card--cta .text-link { color: var(--accent-contrast); }
@@ -1308,13 +1317,11 @@ main:focus { outline: none; }
   .js .facts.reveal { transform: rotate(-.8deg); }
   .js .facts.reveal:not(.is-visible) { transform: rotate(4deg) translateY(30px); }
 
-  /* Projetos: a capa se abre de baixo para cima e a imagem "assenta" */
-  .js .project-cover {
-    clip-path: inset(0 0 0 0 round 12px);
-    transition: clip-path 1.3s var(--ease-out) calc(var(--delay, 0s) + .1s);
+  /* Projetos: a imagem aparece e "assenta" (sem clip-path, que falhava no Safari) */
+  .js .project-cover img {
+    transition: transform 1.2s var(--ease-out) calc(var(--delay, 0s) + .1s), opacity .8s ease calc(var(--delay, 0s) + .1s);
   }
-  .js .reveal:not(.is-visible) .project-cover { clip-path: inset(100% 0 0 0 round 12px); }
-  .js .reveal:not(.is-visible) .project-cover img { transform: scale(1.25); }
+  .js .reveal:not(.is-visible) .project-cover img { transform: scale(1.15); opacity: 0; }
   .js .project-body > * {
     transition: opacity .8s ease, transform 1s var(--ease-out);
     transition-delay: calc(var(--delay, 0s) + .3s);
@@ -1332,7 +1339,9 @@ main:focus { outline: none; }
   /* Post-it entra girando até a posição inclinada */
   .js .service-card--cta.reveal:not(.is-visible) { transform: translateY(40px) rotate(12deg) scale(.9); }
   .js .service-card--cta.reveal.is-visible { transform: rotate(1.5deg); }
-  .js .service-card--cta.reveal.is-visible:hover { transform: rotate(-1deg) translateY(-4px); }
+  @media (hover: hover) {
+    .js .service-card--cta.reveal.is-visible:hover { transform: rotate(-1deg) translateY(-4px); }
+  }
 
   /* Linha do tempo: a linha se desenha conforme a rolagem (--progress vem do JS)
      e cada ponto acende quando a linha passa por ele. */
