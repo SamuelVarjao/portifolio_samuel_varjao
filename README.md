@@ -1,6 +1,6 @@
 # Portfólio — Samuel Varjão
 
-Site de portfólio pessoal, estático (HTML, CSS e JavaScript puro, sem framework e sem build), pronto para o GitHub Pages. Bilíngue (PT/EN), com tema escuro/claro, responsivo e acessível.
+Site de portfólio pessoal, estático (HTML, CSS e JavaScript puro, sem framework e sem build), pronto para o GitHub Pages. Bilíngue (PT/EN), com tema claro (padrão) e escuro, responsivo e acessível. A escolha do visitante fica salva no navegador.
 
 ## Estrutura de pastas
 

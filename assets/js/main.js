@@ -155,8 +155,9 @@
 
   /* ---------- Tema claro / escuro ---------- */
 
+  // O tema claro é o padrão; o escuro só vale quando escolhido no botão.
   function currentTheme() {
-    return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+    return root.getAttribute("data-theme") === "dark" ? "dark" : "light";
   }
 
   function updateThemeLabel() {
@@ -168,8 +169,12 @@
 
   function initTheme() {
     const btn = $("#theme-toggle");
+    // Guarda o tema escolhido na hora do clique (a troca visual acontece um
+    // quadro depois, dentro da transição), para cliques rápidos não se perderem.
+    let theme = currentTheme();
     btn.addEventListener("click", () => {
-      const next = currentTheme() === "dark" ? "light" : "dark";
+      const next = theme === "dark" ? "light" : "dark";
+      theme = next;
 
       // O novo tema se expande em círculo a partir do centro do botão.
       const rect = btn.getBoundingClientRect();
@@ -180,14 +185,15 @@
       root.style.setProperty("--vt-y", y + "px");
       root.style.setProperty("--vt-r", radius + "px");
 
+      // Aplica sempre a escolha mais recente (uma transição nova cancela a anterior).
       withViewTransition(() => {
-        root.setAttribute("data-theme", next);
-        setMeta('meta[name="theme-color"]', next === "dark" ? "#0e0f0c" : "#f6f5ef");
+        root.setAttribute("data-theme", theme);
+        setMeta('meta[name="theme-color"]', theme === "dark" ? "#121410" : "#fbfaf3");
         updateThemeLabel();
       }, "vt-theme");
       storage.set(CONFIG.storageKeys.theme, next);
     });
-    if (currentTheme() === "light") setMeta('meta[name="theme-color"]', "#f6f5ef");
+    if (currentTheme() === "dark") setMeta('meta[name="theme-color"]', "#121410");
   }
 
   /* ---------- Menu mobile ---------- */
