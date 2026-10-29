@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!--
+    SEO e Open Graph.
+    Estes valores (em português) são lidos por Google, WhatsApp, LinkedIn etc.
+    antes do JavaScript rodar. Ao trocar o idioma, o main.js atualiza o título,
+    a descrição e as tags og: com os textos de assets/js/i18n.js.
+    ► Se o endereço do site for diferente de https://samuelvarjao.github.io/,
+      troque a URL nas tags "canonical", "alternate", "og:url" e "og:image".
+  -->
+  <title>Samuel Varjão | Web Designer e Desenvolvedor Web em São Paulo</title>
+  <meta name="description" content="Portfólio de Samuel Varjão de Oliveira, web designer e desenvolvedor web. Faço sites institucionais para clínicas, farmácias, cafeterias e outros pequenos negócios.">
+  <meta name="author" content="Samuel Varjão de Oliveira">
+  <meta name="theme-color" content="#0e0f0c">
+  <link rel="canonical" href="https://samuelvarjao.github.io/">
+  <link rel="alternate" hreflang="pt-BR" href="https://samuelvarjao.github.io/">
+  <link rel="alternate" hreflang="en" href="https://samuelvarjao.github.io/?lang=en">
+  <link rel="alternate" hreflang="x-default" href="https://samuelvarjao.github.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Samuel Varjão">
+  <meta property="og:url" content="https://samuelvarjao.github.io/">
+  <meta property="og:title" content="Samuel Varjão | Web Designer e Desenvolvedor Web em São Paulo">
+  <meta property="og:description" content="Portfólio de Samuel Varjão de Oliveira, web designer e desenvolvedor web. Faço sites institucionais para clínicas, farmácias, cafeterias e outros pequenos negócios.">
+  <meta property="og:image" content="https://samuelvarjao.github.io/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Samuel Varjão, web designer e desenvolvedor web">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Samuel Varjão | Web Designer e Desenvolvedor Web em São Paulo">
+  <meta name="twitter:description" content="Portfólio de Samuel Varjão de Oliveira, web designer e desenvolvedor web. Faço sites institucionais para clínicas, farmácias, cafeterias e outros pequenos negócios.">
+  <meta name="twitter:image" content="https://samuelvarjao.github.io/assets/img/og-image.png">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/img/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+
+  <!-- Aplica tema e idioma salvos antes da página aparecer (evita "piscar"). -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("js");
+      try {
+        var t = localStorage.getItem("sv-theme");
+        if (t === "light" || t === "dark") d.setAttribute("data-theme", t);
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- Fonte: Comic Sans (já instalada no Windows e no macOS). Em celulares sem ela,
+       o CSS baixa a Comic Neue, uma versão aberta e bem parecida (assets/fonts). -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Samuel Varjão de Oliveira",
+    "jobTitle": "Web Designer e Desenvolvedor Web",
+    "email": "mailto:varjao.samueloliveira@gmail.com",
+    "url": "https://samuelvarjao.github.io/",
+    "image": "https://samuelvarjao.github.io/assets/img/samuel-varjao-880.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidade de Mogi das Cruzes" },
+    "knowsLanguage": ["pt-BR", "en"],
+    "knowsAbout": ["Web Design", "Desenvolvimento Web", "HTML", "CSS", "JavaScript", "React", "WordPress", "SEO"]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="a11y.skip"></a>
+
+  <!-- ===================== TOPO ===================== -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">SV</span>
+        <span class="brand-name" data-i18n="brand"></span>
+      </a>
+
+      <nav class="site-nav" id="site-nav" data-i18n-attr="aria-label:a11y.navLabel">
+        <ul class="nav-list">
+          <li><a class="nav-link" href="#sobre" data-i18n="nav.about"></a></li>
+          <li><a class="nav-link" href="#projetos" data-i18n="nav.projects"></a></li>
+          <li><a class="nav-link" href="#servicos" data-i18n="nav.services"></a></li>
+          <li><a class="nav-link" href="#contato" data-i18n="nav.contact"></a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" data-i18n-attr="aria-label:a11y.langGroup">
+          <button class="lang-btn" type="button" data-set-lang="pt" lang="pt-BR">PT<span class="sr-only">, <span data-i18n="a11y.langPt"></span></span></button>
+          <button class="lang-btn" type="button" data-set-lang="en" lang="en">EN<span class="sr-only">, <span data-i18n="a11y.langEn"></span></span></button>
+        </div>
+
+        <button class="icon-btn theme-toggle" type="button" id="theme-toggle">
+          <svg class="icon icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+          <svg class="icon icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-toggle" type="button" id="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+          <svg class="icon icon-menu" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+          <svg class="icon icon-close" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  </header>
+
+  <main id="main" tabindex="-1">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-name" data-i18n="hero.name" data-split></span>
+            <svg class="squiggle" viewBox="0 0 300 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12c20-10 34-10 50 0s32 10 49 0 33-10 49 0 33 10 49 0 33-10 49 0 34 10 48 0"/></svg>
+            <span class="hero-role" data-i18n="hero.role"></span>
+          </h1>
+          <p class="hero-lead" data-i18n="hero.lead"></p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projetos">
+              <span data-i18n="hero.ctaProjects"></span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+            </a>
+            <!-- Leva ao WhatsApp (número em assets/js/config.js) -->
+            <a class="btn btn-ghost" href="#contato" data-whatsapp>
+              <span data-i18n="hero.ctaContact"></span>
+              <span class="sr-only" data-i18n="a11y.newTab"></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <!-- Foto em estilo polaroide. Para trocar, substitua samuel-varjao-480.jpg e -880.jpg (quadrados). -->
+          <figure class="portrait">
+            <div class="portrait-photo">
+              <img src="assets/img/samuel-varjao-480.jpg"
+                   srcset="assets/img/samuel-varjao-480.jpg 480w, assets/img/samuel-varjao-880.jpg 880w"
+                   sizes="(min-width: 1024px) 380px, (min-width: 480px) 380px, calc(100vw - 64px)"
+                   width="880" height="880" fetchpriority="high" decoding="async"
+                   alt="" data-i18n-attr="alt:hero.photoAlt">
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="section" id="sobre" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="fade">
+          <p class="eyebrow"><span class="eyebrow-num">01</span><span data-i18n="about.eyebrow"></span></p>
+          <h2 class="section-title" id="about-title" data-i18n="about.title" data-split></h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <p data-i18n="about.p1"></p>
+          </div>
+          <dl class="facts reveal" data-reveal="fade">
+            <div class="fact"><dt data-i18n="about.factEducation"></dt><dd data-i18n="about.factEducationValue"></dd></div>
+            <div class="fact"><dt data-i18n="about.factLocation"></dt><dd data-i18n="about.factLocationValue"></dd></div>
+            <div class="fact"><dt data-i18n="about.factLanguages"></dt><dd data-i18n="about.factLanguagesValue"></dd></div>          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJETOS ===================== -->
+    <!-- Os cards são gerados a partir de assets/js/projects.js -->
+    <section class="section" id="projetos" aria-labelledby="projects-title">
+      <div class="container">
+        <div class="section-head section-head--split reveal" data-reveal="fade">
+          <div>
+            <p class="eyebrow"><span class="eyebrow-num">02</span><span data-i18n="projects.eyebrow"></span></p>
+            <h2 class="section-title" id="projects-title" data-i18n="projects.title" data-split></h2>
+          </div>
+          <p class="section-intro" data-i18n="projects.intro"></p>
+        </div>
+        <ul class="projects-grid" id="projects-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ===================== SERVIÇOS ===================== -->
+    <section class="section" id="servicos" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="fade">
+          <p class="eyebrow"><span class="eyebrow-num">03</span><span data-i18n="services.eyebrow"></span></p>
+          <h2 class="section-title" id="services-title" data-i18n="services.title" data-split></h2>
+        </div>
+        <ul class="services-grid">
+          <li class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="2.5" y="4" width="19" height="13" rx="2"/><path d="M8 21h8M12 17v4M2.5 8h19"/></svg></span>
+            <h3 data-i18n="services.webTitle"></h3>
+            <p data-i18n="services.webText"></p>
+          </li>
+          <li class="service-card reveal">
+            <!-- Ícone do Instagram -->
+            <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></span>
+            <h3 data-i18n="services.socialTitle"></h3>
+            <p data-i18n="services.socialText"></p>
+          </li>
+          <li class="service-card reveal">
+            <!-- Ícone de gráfico subindo (tráfego pago) -->
+            <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+            <h3 data-i18n="services.adsTitle"></h3>
+            <p data-i18n="services.adsText"></p>
+          </li>
+          <li class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></span>
+            <h3 data-i18n="services.integrationsTitle"></h3>
+            <p data-i18n="services.integrationsText"></p>
+          </li>
+          <li class="service-card reveal">
+            <span class="service-icon" aria-hidden="true"><svg class="icon" viewBox="0 0 24 24"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.59 7.59"/><circle cx="11" cy="11" r="2"/></svg></span>
+            <h3 data-i18n="services.identityTitle"></h3>
+            <p data-i18n="services.identityText"></p>
+          </li>
+          <li class="service-card service-card--cta reveal">
+            <h3 data-i18n="services.ctaTitle"></h3>
+            <p data-i18n="services.ctaText"></p>
+            <a class="text-link" href="#contato" data-whatsapp>
+              <span data-i18n="services.ctaLink"></span>
+              <span class="sr-only" data-i18n="a11y.newTab"></span>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== TECNOLOGIAS ===================== -->
+    <section class="section section--tight" id="tecnologias" aria-labelledby="tech-title">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="fade">
+          <p class="eyebrow"><span class="eyebrow-num">04</span><span data-i18n="tech.eyebrow"></span></p>
+          <h2 class="section-title" id="tech-title" data-i18n="tech.title" data-split></h2>
+        </div>
+        <ul class="tech-grid">
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#e34f26">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>
+            <span class="tech-name" data-i18n="tech.htmlName"></span>
+            <span class="tech-text" data-i18n="tech.htmlText"></span>
+          </li>
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#2965f1">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+            <span class="tech-name" data-i18n="tech.cssName"></span>
+            <span class="tech-text" data-i18n="tech.cssText"></span>
+          </li>
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#f0db4f">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/></svg>
+            <span class="tech-name" data-i18n="tech.jsName"></span>
+            <span class="tech-text" data-i18n="tech.jsText"></span>
+          </li>
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#61dafb">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="12" rx="11" ry="4.2"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="11" ry="4.2" transform="rotate(120 12 12)"/></g><circle cx="12" cy="12" r="2.1" fill="currentColor"/></svg>
+            <span class="tech-name" data-i18n="tech.reactName"></span>
+            <span class="tech-text" data-i18n="tech.reactText"></span>
+          </li>
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#3b8fc4">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10.5"/><path d="M5.6 8.2l3.6 9.6 2.8-7.3 2.8 7.3 3.6-9.6M4.6 8.2h3.2M16.2 8.2h3.2"/></g></svg>
+            <span class="tech-name" data-i18n="tech.wordpressName"></span>
+            <span class="tech-text" data-i18n="tech.wordpressText"></span>
+          </li>
+          <li class="tech-item reveal" data-reveal="scale" style="--brand:#00c4cc">
+            <svg class="tech-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="currentColor"/><path d="M15.6 9.2a4.2 4.2 0 1 0 0 5.6" fill="none" stroke="var(--bg)" stroke-width="2.2" stroke-linecap="round"/></svg>
+            <span class="tech-name" data-i18n="tech.canvaName"></span>
+            <span class="tech-text" data-i18n="tech.canvaText"></span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIÊNCIA ===================== -->
+    <section class="section" id="experiencia" aria-labelledby="experience-title">
+      <div class="container">
+        <div class="section-head reveal" data-reveal="fade">
+          <p class="eyebrow"><span class="eyebrow-num">05</span><span data-i18n="experience.eyebrow"></span></p>
+          <h2 class="section-title" id="experience-title" data-i18n="experience.title" data-split></h2>
+        </div>
+        <ol class="timeline">
+          <li class="timeline-item reveal" data-reveal="left">
+            <p class="timeline-period"><time datetime="2024">2024</time> <span data-i18n="experience.toPresent"></span></p>
+            <div class="timeline-body">
+              <h3 class="timeline-company" data-i18n="experience.freelaCompany"></h3>
+              <p class="timeline-role" data-i18n="experience.freelaRole"></p>
+              <p data-i18n="experience.freelaText"></p>
+              <ul class="tags">
+                <li data-i18n="experience.freelaTag1"></li>
+                <li data-i18n="experience.freelaTag2"></li>
+                <li data-i18n="experience.freelaTag3"></li>
+                <li data-i18n="experience.freelaTag4"></li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline-item reveal" data-reveal="left">
+            <p class="timeline-period"><time datetime="2021">2021</time> <span data-i18n="experience.toPresent"></span></p>
+            <div class="timeline-body">
+              <h3 class="timeline-company" data-i18n="experience.aguiaCompany"></h3>
+              <p class="timeline-role" data-i18n="experience.aguiaRole"></p>
+              <p data-i18n="experience.aguiaText"></p>
+              <ul class="tags">
+                <li data-i18n="experience.aguiaTag1"></li>
+                <li data-i18n="experience.aguiaTag2"></li>
+                <li data-i18n="experience.aguiaTag3"></li>
+              </ul>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO ===================== -->
+    <section class="section section-contact" id="contato" aria-labelledby="contact-title">
+      <div class="container contact-grid">
+        <div class="contact-info reveal" data-reveal="fade">
+          <p class="eyebrow"><span class="eyebrow-num">06</span><span data-i18n="contact.eyebrow"></span></p>
+          <h2 class="section-title" id="contact-title" data-i18n="contact.title" data-split></h2>
+          <p class="contact-lead" data-i18n="contact.lead"></p>
+
+          <ul class="contact-list">
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+              <span class="sr-only" data-i18n="contact.emailLabel"></span>
+              <a class="contact-email" id="contact-email" href="#"></a>
+            </li>
+            <li>
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6.5-8 12-8 12s-8-5.5-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="contact.location"></span>
+            </li>
+          </ul>
+
+          <!-- O link do WhatsApp é montado com o número de assets/js/config.js -->
+          <a class="btn btn-whatsapp" id="whatsapp-link" href="#" target="_blank" rel="noopener noreferrer" hidden>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/><path d="M9 8.8c0 3.4 2.8 6.2 6.2 6.2l1.1-1.6-1.9-1-1 .8a4.4 4.4 0 0 1-2.6-2.6l.8-1-1-1.9z"/></svg>
+            <span data-i18n="contact.whatsapp"></span>
+            <span class="sr-only" data-i18n="a11y.newTab"></span>
+          </a>
+        </div>
+
+        <!-- Formulário enviado pelo Formspree (configure o ID em assets/js/config.js) -->
+        <form class="contact-form reveal" data-reveal="right" id="contact-form" novalidate aria-labelledby="form-title">
+          <h3 class="form-title" id="form-title" data-i18n="form.title"></h3>
+          <p class="form-note" data-i18n="form.required"></p>
+
+          <div class="field">
+            <label for="f-name" data-i18n="form.name"></label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required minlength="2" aria-describedby="f-name-error" data-i18n-attr="placeholder:form.namePlaceholder">
+            <p class="field-error" id="f-name-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="f-email" data-i18n="form.email"></label>
+            <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="f-email-error" data-i18n-attr="placeholder:form.emailPlaceholder">
+            <p class="field-error" id="f-email-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="f-message" data-i18n="form.message"></label>
+            <textarea id="f-message" name="message" rows="5" required minlength="10" aria-describedby="f-message-error" data-i18n-attr="placeholder:form.messagePlaceholder"></textarea>
+            <p class="field-error" id="f-message-error"></p>
+          </div>
+
+          <!-- Campo anti-spam: invisível para pessoas, bots costumam preencher. -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-company" data-i18n="form.honeypot"></label>
+            <input id="f-company" name="_gotcha" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button class="btn btn-primary btn-block" type="submit" id="form-submit">
+            <span data-i18n="form.submit"></span>
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy">© <span id="year"></span> <span data-i18n="footer.name"></span>. <span data-i18n="footer.rights"></span></p>      <a class="back-top" href="#top">
+        <span data-i18n="footer.top"></span>
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <noscript>
+    <p class="noscript">Ative o JavaScript para ver o conteúdo completo. · Please enable JavaScript to see the full content. · <a href="mailto:varjao.samueloliveira@gmail.com">varjao.samueloliveira@gmail.com</a></p>
+  </noscript>
+  <!-- Scripts no fim do body: os textos são aplicados antes da primeira pintura. -->
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/projects.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

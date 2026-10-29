@@ -1,0 +1,56 @@
+<!doctype html>
+<!--
+  Modelo da imagem de compartilhamento (Open Graph), 1200x630.
+  Edite os textos abaixo e rode tools\build-images.ps1 para gerar
+  assets/img/og-image.png e os ícones.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face { font-family: "Comic Neue"; font-weight: 700; src: url("../assets/fonts/comic-neue-700.woff2") format("woff2"); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    position: relative;
+    background-color: #121410;
+    background-image: linear-gradient(rgba(244,243,234,.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(244,243,234,.07) 1px, transparent 1px);
+    background-size: 30px 30px;
+    color: #f4f3ea;
+    font-family: "Comic Sans MS", "Comic Neue", cursive;
+  }
+  .wrap { position: absolute; inset: 70px 80px; display: flex; flex-direction: column; width: 640px; }
+  .mark {
+    display: grid; place-items: center; width: 70px; height: 70px; border-radius: 16px;
+    border: 3px solid #15170f; background: #7cc4ff; color: #15170f;
+    font-size: 30px; font-weight: 700; transform: rotate(-6deg); box-shadow: 4px 4px 0 #000;
+  }
+  h1 { margin: auto 0 0; font-size: 84px; line-height: 1.02; font-weight: 700; }
+  svg { width: 340px; height: 22px; margin: 10px 0 6px; overflow: visible; }
+  svg path { fill: none; stroke: #7cc4ff; stroke-width: 6; stroke-linecap: round; }
+  p { margin: 8px 0 0; font-size: 32px; font-weight: 700; }
+  p span { background: linear-gradient(transparent 52%, rgba(124,196,255,.35) 52%, rgba(124,196,255,.35) 92%, transparent 92%); padding: 0 6px; }
+  .polaroid {
+    position: absolute; right: 90px; top: 90px; width: 330px; padding: 14px 14px 0;
+    background: #fffdf6; border: 3px solid #1d1e18; border-radius: 6px;
+    box-shadow: 8px 8px 0 #000; transform: rotate(4deg);
+  }
+  .polaroid img { display: block; width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .polaroid div { padding: 14px 0 16px; text-align: center; color: #1d1e18; font-size: 26px; font-weight: 700; }
+  .tape { position: absolute; top: -18px; left: 50%; width: 130px; height: 36px; background: rgba(124,196,255,.8); transform: translateX(-50%) rotate(-5deg); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="mark">SV</div>
+    <h1>Samuel Varjão<br>de Oliveira</h1>
+    <svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 12c20-10 34-10 50 0s32 10 49 0 33-10 49 0 33 10 49 0 33-10 49 0 34 10 48 0"/></svg>
+    <p><span>Web designer e desenvolvedor web</span></p>
+  </div>
+  <div class="polaroid">
+    <span class="tape"></span>
+    <img src="../assets/img/samuel-varjao-880.jpg" alt="">
+    <div>samuelvarjao.github.io</div>
+  </div>
+</body>
+</html>
